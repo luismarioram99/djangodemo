@@ -1,8 +1,11 @@
+from django.contrib.auth import login
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models    import *
 from .forms     import *
 # Create your views here.
-def create_quote_view(request):
+@login_required
+def create_quote_view(request, *LoginRequiredMixin):
     form = QuoteForm(request.POST or None)
     if form.is_valid():
         form.instance.author = request.user

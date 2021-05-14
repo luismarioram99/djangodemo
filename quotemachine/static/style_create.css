@@ -1,0 +1,12 @@
+form label{
+    display: none;
+}
+form input{
+    width: 100%;
+}
+form textarea{
+    background-color:#edf7f0;
+    border: 0;
+    font-style: italic;
+    
+}

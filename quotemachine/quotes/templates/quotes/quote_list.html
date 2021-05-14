@@ -1,4 +1,25 @@
-{% extends 'base.html' %} {% block content %} {% for q in quoteList %}
-<p>{{q.content}}</p>
-<br />
-{% endfor %} {% endblock content %}
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block dependencies %}
+    <link rel="stylesheet" href="{% static 'style_list.css' %}">
+{% endblock dependencies %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 d-flex p-2 flex-column align-items-center">
+
+    {% for q in quoteList %}
+        <div class="quote">
+            <p class="content">{{q.content}}</p>
+            <p class="author">{{q.author}}</p>
+        </div>
+    {% endfor %} 
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+{% endblock content %}

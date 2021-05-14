@@ -1,7 +1,21 @@
-{% extends 'base.html' %} {% block content %}
-<h1>Hello, create a quote</h1>
-<form method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="SAVE" />
-</form>
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block dependencies %}
+  <link rel="stylesheet" href="{% static 'style_create.css' %}">
+{% endblock dependencies %}
+
+{% comment %} content {% endcomment %}
+{% block content %}
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 d-flex p-2 flex-column align-items-center">
+    <h2>Create a new quote</h2>
+    <form method="POST">
+      {% csrf_token %} {{form.as_p}}
+      <input class="btn btn-success" type="submit" value="SAVE" />
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>
 {% endblock content %}
